@@ -1,0 +1,59 @@
+
+{% block content %}
+{%load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/cas/style1.css'%}">
+<header>
+        <div class="navigation">
+            <img src="{% static '/cas/canteen_logonew.png'%}" class="canteen_logo">
+            <ul class="menu">
+                <li><a href="/welcome/">Home</a></li>
+                
+                <li><a href="/cas/logout/">Signout</a></li>
+				
+				<li><a href="/cas/previous/">Previous Order</a></li>
+                
+                           </ul>
+        </div>
+    </header>
+    <div class="loginbox">
+   
+    </div>
+<br>
+<form action="/cas/bill/" method="POST">{% csrf_token %}
+<table>
+{% for i in items %}
+	
+	{% for key,j in i.items %}
+	<tr>
+	<td>
+	{{j}}
+	</td>
+	<td>
+	<input type="hidden" name="select" value={{j}}>
+	</td>
+	<td>
+	<input type="number" min="0" name="quantity"/>
+	</td>
+	</tr>
+	{%endfor%}
+	<tr>
+	<td>
+	
+	</td>
+	</tr>
+{% endfor %}	
+</table>
+<br>
+<br>
+<table>
+{% for i in ina %}
+	<tr>
+	<td>
+	{{i}}
+	</td>
+	<td>  is out of stock  </td>
+	</tr>
+{% endfor %}
+<input type="submit" value="submit">
+</form>
+{% endblock %}

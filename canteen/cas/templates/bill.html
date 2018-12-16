@@ -1,0 +1,29 @@
+
+{%load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/cas/style1.css'%}">
+<header>
+        <div class="navigation">
+            <img src="{% static '/cas/canteen_logonew.png'%}" class="canteen_logo">
+            <ul class="menu">
+                <li><a href="/welcome/">Home</a></li>
+                
+                <li><a href="/cas/logout/">Signout</a></li>
+				<li><a href="/cas/previous/">previous</a></li>
+                
+                           </ul>
+        </div>
+    </header>
+{% csrf_token %}
+<br>
+{{now}}
+<br>
+items :
+<br>
+{%for i in items %}
+	{{i}}
+	<br>
+{%endfor%}
+<br>
+total is {{total}}
+
+

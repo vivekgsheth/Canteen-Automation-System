@@ -1,0 +1,53 @@
+{% load static %}
+<html>
+<head>
+<title>Login</title>
+</head>
+    <link rel="stylesheet" type="text/css" href="{% static '/cas/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/cas/style1.css'%}">
+<body>
+    <header>
+        <div class="navigation">
+            <img src="{% static '/cas/canteen_logonew.png'%}" class="canteen_logo">
+            <ul class="menu">
+                <li><a href="/welcome/">Home</a></li>
+                <li><a href="/cas/logout/">Logout</a></li>
+                <li><a href="/cas/loggedin/">Buy</a></li>
+               <!-- <li><a href="#">Category</a></li>-->
+            </ul>
+        </div>
+    </header>
+	
+    <!--{% for i,k in billnumbers%}
+		bill number : {{i}}
+		date: {{k}}<br>
+		{% for j in itemnames %}
+			{{j}}
+			<br>
+		{%endfor%}
+	{%endfor%}-->
+	{% load tz %}
+
+
+	<font color="white" >
+	{% load tz %}
+
+{{ value|localtime }}
+	<br>
+	{% if itemnames %}
+		{{itemnames}}
+	{%endif%}
+	<br>
+	{% for i,j in details.items %}
+		bill number :{{i}}
+		<br>
+		{% for k in j %}
+			{{k}}
+			<br>
+		{% endfor %}
+	{%endfor%}
+		
+		
+	</font>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<head>
+<title>Login</title>
+</head>
+	<link rel="stylesheet" type="text/css" href="{% static '/cas/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/cas/style1.css'%}">
+<body>
+    <header>
+        <div class="navigation">
+           <!-- <img src="{% static '/cas/canteen_logonew.png'%}" class="canteen_logo">-->
+            <ul class="menu">
+                <li><a href="/welcome/">Home</a></li>
+                <li><a href="/cas/login/">Login</a></li>
+                <li><a href="/register/">SignUp</a></li>
+                <li><a href="/aboutus">AboutUs</a></li>
+                <li><a href="/admin">Admin</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="loginbox">
+    <img src="{% static '/cas/login_image.png'%}" class="login_image">
+        <h1>Login</h1>
+	    {% block content %}
+        <form action="/cas/auth/" method="post">{% csrf_token %}
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Enter Username" id="username">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter Password" id="password"><br/>
+         <input type="submit" value="submit">
+        </form>
+        {% endblock %}
+    </div>
+</body>
+</html>
