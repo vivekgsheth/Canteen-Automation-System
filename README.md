@@ -1,5 +1,6 @@
 # Canteen-Automation-System
-Built using Django Framework and code behind is in Python.
+Built using Django Framework and code behind is in Python. Database used was MySql.
+
 
 
 Working : New user gets registered into the system using unm, pwd, email, mobile no(signup). He is redirected to Login page(cas/login).
